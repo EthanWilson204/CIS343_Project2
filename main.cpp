@@ -2,7 +2,7 @@
 #include "ServiceRecord.h"
 #include <iostream>
 
-void findInInventory(std::vector<Car>::iterator it, std::vector<Car> inventory, int id){
+void findInInventory(std::vector<Car>::iterator it, std::vector<Car> &inventory, int id){
 	
 	while(it != inventory.end()){
 		if(it->getId() == id){
@@ -12,7 +12,7 @@ void findInInventory(std::vector<Car>::iterator it, std::vector<Car> inventory, 
 	}	
 }
 
-void makeTrade(std::vector<Car> inventory, Car tradein, Car tradeout){
+void makeTrade(std::vector<Car> &inventory, Car tradein, Car tradeout){
 	ServiceRecord outInspection("Sale inspection.", 1.0);
 	tradeout.addRecord(outInspection);
 
@@ -25,11 +25,11 @@ void makeTrade(std::vector<Car> inventory, Car tradein, Car tradeout){
 	std::cout << "tradeout is: " << tradeout << std::endl;
 	findInInventory(it, inventory, tradeout.getId());
 
-	/*
+	
 	if(it != inventory.end()){
 		inventory.erase(it);
 	}
-	*/
+	
 	inventory.push_back(tradein);
 }
 

@@ -8,11 +8,14 @@ Car::Car(int year, std::string model){
 	this->year = year;
 	this->model = model;
 }
+
 Car::Car(const Car& copy){
-        this->id = Car::current_id++;
-        this->year = copy.getYear();
-        this->model = copy.getModel();
+	this->records = copy.records;
+	this->id = Car::current_id++;
+	this->year = copy.year;
+	this->model = copy.model;
 }
+
 int Car::getId() const {
 	return this->id;
 }

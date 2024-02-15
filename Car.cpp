@@ -4,16 +4,35 @@
 int Car::current_id = 0;
 
 Car::Car(int year, std::string model){
+	//FIXME delete below after done
+	printf("Made!\n");
+
 	this->id = Car::current_id++;
 	this->year = year;
 	this->model = model;
 }
 
 Car::Car(const Car& copy){
+	//FIXME delete below after done
+	printf("Copied!\n");
+
 	this->records = copy.records;
 	this->id = Car::current_id++;
 	this->year = copy.year;
 	this->model = copy.model;
+}
+
+Car::Car(Car&& other) noexcept {
+	//FIXME delete below after done
+	printf("Moved!");
+	
+	if(this != &other) {
+		this->records = std::move(other.records);
+		this->id = std::move(other.id);
+		this->year = std::move(other.year);
+		this->model = std::move(other.model);
+
+	}
 }
 
 int Car::getId() const {

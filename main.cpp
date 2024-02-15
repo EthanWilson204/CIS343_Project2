@@ -38,9 +38,13 @@ int main(int argc, char** argv){
 	ServiceRecord first("Oil change.", 9.95f);
 	a.addRecord(first);
 
+	std::cout << "ID of Car a is: " << a.getId() << std::endl;
+
 	Car b(a);
 	first = ServiceRecord("Radiator flush.", 19.95);
 	b.addRecord(first);
+
+	std::cout << "ID of Car b is: " << b.getId() << std::endl;
 
 	std::vector<Car> inventory;
 	inventory.push_back(a);
@@ -48,9 +52,8 @@ int main(int argc, char** argv){
 
 	Car c(b);
 	c.setModel("Ford F150");
-	//FIXME delete below when done
-	std::cout << "Inventory size before trade is: " << inventory.size() << std::endl;
 
+	std::cout << "ID of Car c is: " << c.getId() << std::endl;
 
 	std::cout << "Customer wants to trade in " << c << std::endl;
 	std::cout << "They want to get " << a << std::endl;
@@ -62,6 +65,5 @@ int main(int argc, char** argv){
 		std::cout << *it << std::endl;
 	}
 
-	//FIXME delete below when done
-	std::cout << "Inventory size after trade is: " << inventory.size() << std::endl;
+
 }

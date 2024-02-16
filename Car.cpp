@@ -12,6 +12,7 @@ Car::Car(int year, std::string model){
 	this->model = model;
 }
 
+
 Car::Car(const Car& copy){
 	//FIXME delete below after done
 	printf("Copied!\n");
@@ -22,6 +23,7 @@ Car::Car(const Car& copy){
 	this->model = copy.model;
 }
 
+/*
 Car::Car(Car&& other) noexcept {
 	//FIXME delete below after done
 	printf("Moved!");
@@ -31,10 +33,9 @@ Car::Car(Car&& other) noexcept {
 		this->id = std::move(other.id);
 		this->year = std::move(other.year);
 		this->model = std::move(other.model);
-
 	}
 }
-
+*/
 int Car::getId() const {
 	return this->id;
 }

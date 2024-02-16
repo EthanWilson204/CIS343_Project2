@@ -4,7 +4,7 @@
 #include <functional>
 
 void findInInventory(std::vector<std::reference_wrapper<Car>>::iterator it, std::vector<std::reference_wrapper<Car>> &inventory, int id){
-	
+
 	while(it != inventory.end()){
 		if(it->get().getId() == id){
 			break;
@@ -13,7 +13,7 @@ void findInInventory(std::vector<std::reference_wrapper<Car>>::iterator it, std:
 	}	
 }
 
-void makeTrade(std::vector<std::reference_wrapper<Car>> inventory, Car& tradein, Car& tradeout){
+void makeTrade(std::vector<std::reference_wrapper<Car>>& inventory, Car& tradein, Car& tradeout){
 	ServiceRecord outInspection("Sale inspection.", 1.0);
 	tradeout.addRecord(outInspection);
 
@@ -32,6 +32,7 @@ void makeTrade(std::vector<std::reference_wrapper<Car>> inventory, Car& tradein,
 	}
 	
 	inventory.push_back(tradein);
+	
 }
 
 int main(int argc, char** argv){

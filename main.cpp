@@ -1,18 +1,19 @@
 #include "Car.h"
 #include "ServiceRecord.h"
 #include <iostream>
+#include <functional>
 
-void findInInventory(std::vector<Car>::iterator it, std::vector<Car> &inventory, int id){
+void findInInventory(std::vector<std::reference_wrapper<Car>>::iterator it, std::vector<std::reference_wrapper<Car>> &inventory, int id){
 	
 	while(it != inventory.end()){
-		if(it->getId() == id){
+		if(it->get().getId() == id){
 			break;
 		}
 		it++;
 	}	
 }
 
-void makeTrade(std::vector<Car> &inventory, Car tradein, Car tradeout){
+void makeTrade(std::vector<std::reference_wrapper<Car>> inventory, Car& tradein, Car& tradeout){
 	ServiceRecord outInspection("Sale inspection.", 1.0);
 	tradeout.addRecord(outInspection);
 
@@ -42,7 +43,7 @@ int main(int argc, char** argv){
 	first = ServiceRecord("Radiator flush.", 19.95);
 	b.addRecord(first);
 
-	std::vector<Car> inventory;
+	std::vector< std::reference_wrapper<Car> > inventory;
 	inventory.push_back(a);
 	inventory.push_back(b);
 	
@@ -51,6 +52,7 @@ int main(int argc, char** argv){
 
 	std::cout << "Customer wants to trade in " << c << std::endl;
 	std::cout << "They want to get " << a << std::endl;
+	
 	makeTrade(inventory, c, a);
 
 	std::cout << "After trade, inventory is: " << std::endl;

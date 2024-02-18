@@ -65,15 +65,15 @@ int main(int argc, char** argv){
 	}
 
 	//sort old inventory
-	/*
+	
 	printf("Inventory after sorting will be:\n");
-	std::sort(inventory.begin(), inventory.end());
+	std::sort(inventory.begin(), inventory.end(), Car::compCars);
 	for(auto it = inventory.begin(); it != inventory.end(); ++it){
 		std::cout << *it << std::endl;
 	}
 	
 	//create a new vector with 5 new cars
-	*/
+	
 	std::vector<std::reference_wrapper<Car>> newInventory;
 		
 	Car d(2015, "Ford Raptor");
@@ -109,7 +109,7 @@ int main(int argc, char** argv){
 		std::cout << *new_it << std::endl;
 	}
 	
-	std::sort(newInventory.begin(), newInventory.end(), compCars);
+	std::sort(newInventory.begin(), newInventory.end(), Car::compCars);
 
 	printf("Inventory after sorting will be:\n");
 	for(auto new_it = newInventory.begin(); new_it != newInventory.end(); ++new_it){

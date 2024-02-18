@@ -1,3 +1,6 @@
+//Author - Ethan Wilson
+
+
 #ifndef			__H__CAR__
 #define			__H__CAR__
 

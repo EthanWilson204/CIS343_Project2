@@ -1,3 +1,6 @@
+//Author - Ethan Wilson
+
+
 #ifndef		__H__SERVICE_RECORD__
 #define		__H__SERVICE_RECORD__
 

@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <stdbool.h>
+#include <functional>
 
 class Car {
 	public:
@@ -19,6 +19,8 @@ class Car {
 		std::string getModel() const;
 		std::vector<ServiceRecord> getRecords() const;
 		void addRecord(ServiceRecord);
+
+		static bool compCars(const std::reference_wrapper<Car>& a, const std::reference_wrapper<Car>& b);
 
 		friend std::ostream& operator<<(std::ostream& of, const Car& car);
 	private:

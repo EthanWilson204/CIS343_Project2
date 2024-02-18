@@ -3,6 +3,7 @@
 #include <iostream>
 #include <functional>
 #include <algorithm>
+#include <vector>
 
 void findInInventory(std::vector<std::reference_wrapper<Car>>::iterator it, std::vector<std::reference_wrapper<Car>> &inventory, int id){
 
@@ -108,7 +109,7 @@ int main(int argc, char** argv){
 		std::cout << *new_it << std::endl;
 	}
 	
-	std::sort(newInventory.begin(), newInventory.end());
+	std::sort(newInventory.begin(), newInventory.end(), compCars);
 
 	printf("Inventory after sorting will be:\n");
 	for(auto new_it = newInventory.begin(); new_it != newInventory.end(); ++new_it){

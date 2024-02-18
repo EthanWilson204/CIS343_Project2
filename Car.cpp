@@ -1,32 +1,13 @@
 #include "Car.h"
 #include "ServiceRecord.h"
 #include <iostream>
+#include <functional>
 #include <algorithm>
+#include <vector>
 
 int Car::current_id = 0;
 
-bool Car::operator<(const Car& other) {
-	float sum_other = 0.0, sum_this = 0.0;
-
-
-	for(auto it=this->records.begin(); it != this->records.end(); ++it){
-		sum_this += this->records.getCost();
-	}
-	for(auto it=other.records.begin(); it != other.records.end(); ++it){
-		sum_other += this->other.records.getCost();
-	}
-
-	if(sum_other > sum_this) {
-		return true;
-	}
-	
-	return false;
-}
-
 Car::Car(int year, std::string model){
-	//FIXME delete below after done
-	printf("Made!\n");
-
 	this->id = Car::current_id++;
 	this->year = year;
 	this->model = model;
@@ -34,15 +15,31 @@ Car::Car(int year, std::string model){
 
 
 Car::Car(const Car& copy){
-	//FIXME delete below after done
-	printf("Copied!\n");
-
 	this->records = copy.records;
 	this->id = Car::current_id++;
 	this->year = copy.year;
 	this->model = copy.model;
 }
 
+bool Car::operator<(const Car& other) const{
+
+        double sum_other = 0.0, sum_this = 0.0;
+
+        for(const auto& record : this->records){
+                sum_this += record.getCost();
+        }
+        for(const auto& record : other.records){
+                sum_other += record.getCost();
+        }
+
+        return sum_this < sum_other;
+}
+
+bool Car::compCars(const std::reference_wrapper<Car>& a, const std::reference_wrapper<Car>& b) {
+
+        return a.get() < b.get();
+
+}
 
 int Car::getId() const {
 	return this->id;

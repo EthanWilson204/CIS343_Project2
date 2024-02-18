@@ -64,12 +64,13 @@ int main(int argc, char** argv){
 	}
 
 	//sort old inventory
+	
 	printf("Inventory after sorting will be:\n");
 	std::sort(inventory.begin(), inventory.end());
 	for(auto it = inventory.begin(); it != inventory.end(); ++it){
 		std::cout << *it << std::endl;
 	}
-
+	
 	//create a new vector with 5 new cars
 	std::vector<Car> newInventory;
 	
@@ -99,13 +100,13 @@ int main(int argc, char** argv){
 	h.addRecord(five);
 
 	printf("\nNew inventory before sorting is:\n");
-	for(new_it = newInventory.begin(); new_it != newInventory.end(); ++new_it){
+	for(auto new_it = newInventory.begin(); new_it != newInventory.end(); ++new_it){
 		std::cout << *new_it << std::endl;
 	}
 
 	printf("Inventory after sorting will be:\n");
 	std::sort(newInventory.begin(), newInventory.end());
-	for(new_it = newInventory.begin(); new_it != newInventory.end(); ++new_it){
+	for(auto new_it = newInventory.begin(); new_it != newInventory.end(); ++new_it){
 		std::cout << *new_it << std::endl;
 	}
 

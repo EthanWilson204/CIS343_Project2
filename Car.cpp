@@ -1,16 +1,19 @@
 #include "Car.h"
+#include "ServiceRecord.h"
 #include <iostream>
 #include <algorithm>
 
 int Car::current_id = 0;
 
 bool Car::operator<(const Car& other) {
+	float sum_other = 0.0, sum_this = 0.0;
+
 
 	for(auto it=this->records.begin(); it != this->records.end(); ++it){
 		sum_this += this->records.getCost();
 	}
 	for(auto it=other.records.begin(); it != other.records.end(); ++it){
-		sum_other += other.records.getCost();
+		sum_other += this->other.records.getCost();
 	}
 
 	if(sum_other > sum_this) {

@@ -6,13 +6,11 @@
 #include <vector>
 #include <algorithm>
 
-bool operator<(const Car & other);
-
 class Car {
 	public:
 		Car(int, std::string);
 		Car(const Car& copy);
-		bool Car::operator<(const Car& other)
+		bool Car::operator<(const Car& other);
 		int getId() const;
 		void setYear(int);
 		int getYear() const;

@@ -64,7 +64,7 @@ int main(int argc, char** argv){
 	}
 
 	//sort old inventory
-	
+	/*
 	printf("Inventory after sorting will be:\n");
 	std::sort(inventory.begin(), inventory.end());
 	for(auto it = inventory.begin(); it != inventory.end(); ++it){
@@ -72,21 +72,15 @@ int main(int argc, char** argv){
 	}
 	
 	//create a new vector with 5 new cars
-	std::vector<Car> newInventory;
-	
+	*/
+	std::vector<std::reference_wrapper<Car>> newInventory;
+		
 	Car d(2015, "Ford Raptor");
 	Car e(2020, "Toyota Rav4");
 	Car f(2015, "Toyota Tacoma");
 	Car g(2015, "Audi A8");
 	Car h(2002, "Honda S2000");
-
-	newInventory.push_back(d);
-	newInventory.push_back(e);
-	newInventory.push_back(f);
-	newInventory.push_back(g);
-	newInventory.push_back(h);
 	
-	//add random service records to each vehicle
 	ServiceRecord one("Oil change.", 10.00f);
 	ServiceRecord two("Oil change.", 20.00f);
 	ServiceRecord three("Oil change.", 30.00f);
@@ -99,13 +93,24 @@ int main(int argc, char** argv){
 	g.addRecord(four);
 	h.addRecord(five);
 
+
+	newInventory.push_back(d);
+	newInventory.push_back(e);
+	newInventory.push_back(f);
+	newInventory.push_back(g);
+	newInventory.push_back(h);
+	
+	//add random service records to each vehicle
+	
 	printf("\nNew inventory before sorting is:\n");
+	
 	for(auto new_it = newInventory.begin(); new_it != newInventory.end(); ++new_it){
 		std::cout << *new_it << std::endl;
 	}
+	
+	std::sort(newInventory.begin(), newInventory.end());
 
 	printf("Inventory after sorting will be:\n");
-	std::sort(newInventory.begin(), newInventory.end());
 	for(auto new_it = newInventory.begin(); new_it != newInventory.end(); ++new_it){
 		std::cout << *new_it << std::endl;
 	}

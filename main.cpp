@@ -2,6 +2,7 @@
 #include "ServiceRecord.h"
 #include <iostream>
 #include <functional>
+#include <algorithm>
 
 void findInInventory(std::vector<std::reference_wrapper<Car>>::iterator it, std::vector<std::reference_wrapper<Car>> &inventory, int id){
 
@@ -43,7 +44,7 @@ int main(int argc, char** argv){
 	Car b(a);
 	first = ServiceRecord("Radiator flush.", 19.95);
 	b.addRecord(first);
-
+	
 	std::vector< std::reference_wrapper<Car> > inventory;
 	inventory.push_back(a);
 	inventory.push_back(b);
@@ -60,6 +61,52 @@ int main(int argc, char** argv){
 	std::cout << "===========================" << std::endl;
 	for(auto it = inventory.begin(); it != inventory.end(); ++it){
 		std::cout << *it << std::endl;
+	}
+
+	//sort old inventory
+	printf("Inventory after sorting will be:\n");
+	std::sort(inventory.begin(), inventory.end());
+	for(auto it = inventory.begin(); it != inventory.end(); ++it){
+		std::cout << *it << std::endl;
+	}
+
+	//create a new vector with 5 new cars
+	std::vector<Car> newInventory;
+	
+	Car d(2015, "Ford Raptor");
+	Car e(2020, "Toyota Rav4");
+	Car f(2015, "Toyota Tacoma");
+	Car g(2015, "Audi A8");
+	Car h(2002, "Honda S2000");
+
+	newInventory.push_back(d);
+	newInventory.push_back(e);
+	newInventory.push_back(f);
+	newInventory.push_back(g);
+	newInventory.push_back(h);
+	
+	//add random service records to each vehicle
+	ServiceRecord one("Oil change.", 10.00f);
+	ServiceRecord two("Oil change.", 20.00f);
+	ServiceRecord three("Oil change.", 30.00f);
+	ServiceRecord four("Oil change.", 40.00f);
+	ServiceRecord five("Oil change.", 15.00f);
+
+	d.addRecord(one);
+	e.addRecord(two);
+	f.addRecord(three);
+	g.addRecord(four);
+	h.addRecord(five);
+
+	printf("\nNew inventory before sorting is:\n");
+	for(new_it = newInventory.begin(); new_it != newInventory.end(); ++new_it){
+		std::cout << *new_it << std::endl;
+	}
+
+	printf("Inventory after sorting will be:\n");
+	std::sort(newInventory.begin(), newInventory.end());
+	for(new_it = newInventory.begin(); new_it != newInventory.end(); ++new_it){
+		std::cout << *new_it << std::endl;
 	}
 
 

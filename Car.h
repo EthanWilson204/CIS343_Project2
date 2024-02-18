@@ -5,12 +5,13 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <stdbool.h>
 
 class Car {
 	public:
 		Car(int, std::string);
 		Car(const Car& copy);
-		bool Car::operator<(const Car& other);
+		bool operator<(const Car& other) const;
 		int getId() const;
 		void setYear(int);
 		int getYear() const;
